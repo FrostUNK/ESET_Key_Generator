@@ -135,7 +135,7 @@ namespace EsetKeyGenerator
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("https://github.com/FrostUNK/Eset-Key-Generator") { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo("https://github.com/FrostUNK/ESET_Key_Generator") { UseShellExecute = true });
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
