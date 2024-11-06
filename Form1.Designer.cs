@@ -1,4 +1,4 @@
-﻿namespace EsetKeyGenerator
+namespace EsetKeyGenerator
 {
     partial class Form1
     {
@@ -55,7 +55,6 @@
             textBox1.Size = new Size(281, 29);
             textBox1.TabIndex = 1;
             textBox1.TextAlign = HorizontalAlignment.Center;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // linkLabel1
             // 
@@ -85,7 +84,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EsetKeyGenerator";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
