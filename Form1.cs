@@ -3,13 +3,9 @@
   /// If you post my code somewhere, ///
  ///        please tag me :)        ///
 //////////////////////////////////////
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Diagnostics;
 
 namespace EsetKeyGenerator
 {
@@ -18,11 +14,6 @@ namespace EsetKeyGenerator
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -46,7 +37,7 @@ namespace EsetKeyGenerator
             {
                 // Start ChromeDriver
                 var chromeOptions = new ChromeOptions();
-                chromeOptions.AddArgument("--headless");
+                //chromeOptions.AddArgument("--headless");
                 chromeOptions.AddArgument("--start-maximized");
 
                 // Console hiding
@@ -56,31 +47,25 @@ namespace EsetKeyGenerator
                 using IWebDriver driver = new ChromeDriver(service, chromeOptions);
 
                 // Temporary mail receipt
-                var emailHandler = new EmailHandler(driver);
-                string emailAddress = emailHandler.GetFakeEmailAddress();
+                string emailAddress = new EmailHandler(driver).GetFakeEmailAddress();
 
                 driver.Navigate().GoToUrl("https://login.eset.com/register");
 
                 // Waiting and pressing buttons one at a time
-                var languageSelector = WaitH.WaitUntilElementClickable(driver, By.CssSelector(".ltr-s8zsu"));
-                languageSelector.Click();
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='languageSelector-toggle-btn']")).Click();
 
-                var englishOption = WaitH.WaitUntilElementClickable(driver, By.CssSelector("input[data-label='languageSelector-item-en-US-radio']"));
-                englishOption.Click();
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("input[data-label='languageSelector-item-en-US-radio']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("input[type='email']")).SendKeys(emailAddress);
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[type='submit']")).Click();
+                
+                // Account password
+                WaitH.WaitUntilElementClickable(driver, By.Id("password")).SendKeys(PassGen.GeneratePassword(12));
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector(".select__control")).Click();
 
-                var emailField = WaitH.WaitUntilElementClickable(driver, By.CssSelector("input[type='email']"));
-                emailField.SendKeys(emailAddress);
-
-                var continueButton = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[type='submit']"));
-                continueButton.Click();
-
-                string password = PassGen.GeneratePassword(12);
-                var passwordField = WaitH.WaitUntilElementClickable(driver, By.Id("password"));
-                passwordField.SendKeys(password);
-
-                var countrySelector = WaitH.WaitUntilElementClickable(driver, By.CssSelector(".select__control"));
-                countrySelector.Click();
-
+                // Select Country
                 var options = WaitH.WaitUntilElementsVisible(driver, By.CssSelector(".select__option"));
                 foreach (var option in options)
                 {
@@ -91,35 +76,28 @@ namespace EsetKeyGenerator
                     }
                 }
 
-                var Button2 = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[type='submit']"));
-                Button2.Click();
-
-                var resendButton = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='account-verification-email-modal-resend-email-btn']"));
-                emailHandler.ConfirmEmail();
-
-                var getStartedButton = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='home-overview-empty-add-license-btn']"));
-                getStartedButton.Click();
-
-                var esetFree = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='license-fork-slide-trial-license-card-button']"));
-                esetFree.Click();
-
-                var Button3 = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='license-fork-slide-continue-button']"));
-                Button3.Click();
-
-                var esetHome = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='subscription-choose-trial-ehsp-card-button']"));
-                esetHome.Click();
-
-                var Button4 = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button.css-1tz7qlj"));
-                Button4.Click();
-
-                var subscription = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='subscription-choose-trial-esbs-card-button']"));
-                subscription.Click();
-
-                var Button5 = WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='subscription-choose-trial-continue-btn']"));
-                Button5.Click();
-
-                var esetKey = WaitH.WaitUntilElementVisible(driver, By.CssSelector("div.DetailInfoSectionItem__value[data-r='license-detail-license-key'] p.css-1akdxnt"));
-                return esetKey.Text;
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[type='submit']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='account-verification-email-modal-resend-email-btn']"));
+                
+                // Confirm Email
+                new EmailHandler(driver).ConfirmEmail();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='home-overview-empty-add-license-btn']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='license-fork-slide-trial-license-card-button']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='license-fork-slide-continue-button']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='subscription-choose-trial-ehsp-card-button']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[aria-disabled='false']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='subscription-choose-trial-esbs-card-button']")).Click();
+                
+                WaitH.WaitUntilElementClickable(driver, By.CssSelector("button[data-label='subscription-choose-trial-continue-btn']")).Click();
+                
+                return WaitH.WaitUntilElementVisible(driver, By.CssSelector("div[data-label='license-detail-license-key'] p")).Text;
             });
         }
 
@@ -138,9 +116,5 @@ namespace EsetKeyGenerator
             Process.Start(new ProcessStartInfo("https://github.com/FrostUNK/ESET_Key_Generator") { UseShellExecute = true });
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
