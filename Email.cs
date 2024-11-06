@@ -1,7 +1,4 @@
-using System;
-using System.Collections.ObjectModel;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 // Email client code
 public class EmailHandler
@@ -19,8 +16,7 @@ public class EmailHandler
         _driver.Navigate().GoToUrl("https://fakemail.net");
 
         // Receiving email
-        var emailElement = WaitH.WaitUntilElementClickable(_driver, By.Id("email"));
-        string emailAddress = emailElement.Text;
+        string emailAddress = WaitH.WaitUntilElementClickable(_driver, By.Id("email")).Text;
 
         return emailAddress;
     }
@@ -45,9 +41,8 @@ public class EmailHandler
                 // Switch to iframe
                 _driver.SwitchTo().Frame("iframeMail");
 
-                // Wait until the ìConfirm registrationî button becomes available
-                var confirmButtonElement = WaitH.WaitUntilElementClickable(_driver, By.XPath("//a[contains(text(), 'Confirm registration')]"));
-                confirmButtonElement.Click();
+                // Wait until the ‚ÄúConfirm registration‚Äù button becomes available
+                WaitH.WaitUntilElementClickable(_driver, By.XPath("//a[contains(text(), 'Confirm registration')]")).Click();
 
                 // Switch to a new tab
                 _driver.SwitchTo().Window(_driver.WindowHandles[1]);
