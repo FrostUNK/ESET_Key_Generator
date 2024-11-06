@@ -37,7 +37,7 @@ namespace EsetKeyGenerator
             {
                 // Start ChromeDriver
                 var chromeOptions = new ChromeOptions();
-                //chromeOptions.AddArgument("--headless");
+                chromeOptions.AddArgument("--headless");
                 chromeOptions.AddArgument("--start-maximized");
 
                 // Console hiding
