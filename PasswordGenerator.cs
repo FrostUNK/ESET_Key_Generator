@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 // Generation password for eset account
 public static class PassGen
 {
