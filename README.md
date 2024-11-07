@@ -39,3 +39,16 @@ After you click publish, you will see two files: `esetkeygenerator.exe` and the 
 ![IMG](readme/finishprogram.png)
 
 Done and ready to use! The `.pdb` file can be deleted.
+
+## Dependencies
+
+- [.NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
+
+- [Selenium](https://www.selenium.dev/) for browser automation
+
+- [ChromeDriver](https://sites.google.com/chromium.org/driver/) for interacting with Chrome (or another WebDriver for other browsers)
+
+
+# Contributing
+
+This project is open to suggestions and improvements. If you have ideas or have found an issue, feel free to create an issue or submit a pull request.
