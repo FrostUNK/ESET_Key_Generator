@@ -32,6 +32,8 @@ namespace EsetKeyGenerator
             button1 = new Button();
             textBox1 = new TextBox();
             linkLabel1 = new LinkLabel();
+            numericUpDown1 = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -70,11 +72,23 @@ namespace EsetKeyGenerator
             linkLabel1.Text = "GitHub";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(52, 129);
+            numericUpDown1.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(31, 23);
+            numericUpDown1.TabIndex = 3;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(379, 188);
+            Controls.Add(numericUpDown1);
             Controls.Add(linkLabel1);
             Controls.Add(textBox1);
             Controls.Add(button1);
@@ -84,6 +98,7 @@ namespace EsetKeyGenerator
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EsetKeyGenerator";
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -93,5 +108,6 @@ namespace EsetKeyGenerator
         private Button button1;
         private TextBox textBox1;
         private LinkLabel linkLabel1;
+        private NumericUpDown numericUpDown1;
     }
 }
