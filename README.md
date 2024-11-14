@@ -30,6 +30,7 @@ Install it from the [Releases](https://github.com/FrostUNK/Eset_Key_Generator/re
 
 ## With the Code
 
+***If you downloaded the repository, remember to unlock the `Form1.resx` file (via properties in explorer) before proceeding.***  
 You will need to select the project in the Solution Explorer, right-click, and publish. Then, configure the publishing settings to a folder. Specify the following in the publishing settings:
 
 ![IMG](readme/settings.png)
@@ -39,6 +40,9 @@ After you click publish, you will see two files: `esetkeygenerator.exe` and the 
 ![IMG](readme/finishprogram.png)
 
 Done and ready to use! The `.pdb` file can be deleted.
+
+#### If you encounter any issues:
+You can try enabling a VPN, reduce the number of keys being generated, or wait.
 
 ## Dependencies
 
