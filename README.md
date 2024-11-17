@@ -16,7 +16,7 @@ This program generates keys for ESET Antivirus.
 ## How Does It Work?
 The program registers an account with a free 30-day subscription and issues an activation key. Everything happens very quickly, and you don't have to waste time creating a new account or reinstalling your antivirus!
 
-# Using the Program
+# Using
 
 You can run the installer, use a ready-made image, or create your own by downloading the source code.
 
