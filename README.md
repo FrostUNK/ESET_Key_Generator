@@ -1,4 +1,4 @@
-# ✨ ESET Key Generator: Fastest Key Generation ✨ 
+# ESET Key Generator: Fastest Key Generation
 
 This program generates keys for ESET Antivirus.
 
