@@ -1,8 +1,3 @@
-//////////////////////////////////////
-/// https://github.com/FrostUNK/   ///
-/// If you post my code somewhere, ///
-///        please tag me :)        ///
-//////////////////////////////////////
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Diagnostics;
