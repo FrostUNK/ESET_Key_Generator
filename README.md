@@ -29,8 +29,7 @@ You can [install](https://github.com/FrostUNK/Eset_Key_Generator/releases/downlo
 Install it from the [Releases](https://github.com/FrostUNK/ESET_Key_Generator/releases/download/v1.5.0/Release.zip)
 
 ## With the Code
-
-***If you downloaded the repository, remember to unlock the `Form1.resx` file (via properties in explorer) before proceeding.***  
+  
 You will need to select the project in the Solution Explorer, right-click, and publish. Then, configure the publishing settings to a folder. Specify the following in the publishing settings:
 
 ![IMG](readme/settings.png)
